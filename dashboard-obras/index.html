@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Controle de Obras</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fas fa-building"></i>
+        <span>Controle de Obras</span>
+      </div>
+      <nav class="menu">
+        <a href="#" class="menu-item active" data-page="overview">
+          <i class="fas fa-chart-line"></i> Dashboard
+        </a>
+        <a href="#" class="menu-item" data-page="obras">
+          <i class="fas fa-list"></i> Obras
+        </a>
+        <a href="#" class="menu-item" data-page="timeline">
+          <i class="fas fa-calendar"></i> Timeline
+        </a>
+        <a href="#" class="menu-item" data-page="relatorios">
+          <i class="fas fa-file-pdf"></i> Relatórios
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <p>Sistema de Gestão de Obras</p>
+        <small>v1.0</small>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle">Visão geral do controle de obras</p>
+        </div>
+        <div class="topbar-right">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar obra...">
+          </div>
+          <button class="btn-icon">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="user-avatar">BR</div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="content">
+        <!-- Overview Page -->
+        <div id="overview" class="page active">
+          <!-- KPI Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card total">
+              <div class="kpi-header">
+                <h3>Total de Obras</h3>
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="kpi-value">12</div>
+              <div class="kpi-subtitle">Em andamento e planejadas</div>
+              <div class="kpi-trend">↑ 2 novas este mês</div>
+            </div>
+
+            <div class="kpi-card em-andamento">
+              <div class="kpi-header">
+                <h3>Em Andamento</h3>
+                <i class="fas fa-hourglass-half"></i>
+              </div>
+              <div class="kpi-value">8</div>
+              <div class="kpi-subtitle">Obras ativas</div>
+              <div class="kpi-trend">Progresso médio: 62%</div>
+            </div>
+
+            <div class="kpi-card concluido">
+              <div class="kpi-header">
+                <h3>Concluídas</h3>
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="kpi-value">3</div>
+              <div class="kpi-subtitle">Finalizadas no período</div>
+              <div class="kpi-trend">No prazo: 100%</div>
+            </div>
+
+            <div class="kpi-card atrasado">
+              <div class="kpi-header">
+                <h3>Com Desvio</h3>
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="kpi-value">1</div>
+              <div class="kpi-subtitle">Requerem atenção</div>
+              <div class="kpi-trend">8 dias de atraso</div>
+            </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="charts-grid">
+            <!-- Progress Chart -->
+            <div class="chart-card">
+              <h3>Progresso das Principais Obras</h3>
+              <div class="progress-list">
+                <div class="progress-item">
+                  <div class="progress-header">
+                    <span class="progress-name">Prédio Comercial - Centro</span>
+                    <span class="progress-percent">78%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill concluido" style="width: 78%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-header">
+                    <span class="progress-name">Residência Unifamiliar - Zona Sul</span>
+                    <span class="progress-percent">45%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill em-andamento" style="width: 45%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-header">
+                    <span class="progress-name">Reforma Hotel - Praia</span>
+                    <span class="progress-percent">62%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill em-andamento" style="width: 62%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-header">
+                    <span class="progress-name">Condomínio Residencial - Novo Bairro</span>
+                    <span class="progress-percent">35%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill em-andamento" style="width: 35%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-header">
+                    <span class="progress-name">Galpão Industrial - Distrito</span>
+                    <span class="progress-percent">88%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill concluido" style="width: 88%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Status Chart -->
+            <div class="chart-card">
+              <h3>Distribuição por Status</h3>
+              <div class="status-chart">
+                <div class="chart-donut">
+                  <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#22c55e" stroke-width="15" stroke-dasharray="65.97 207.35" stroke-dashoffset="0"></circle>
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#f59e0b" stroke-width="15" stroke-dasharray="103.68 207.35" stroke-dashoffset="-65.97"></circle>
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#3b82f6" stroke-width="15" stroke-dasharray="37.7 207.35" stroke-dashoffset="-169.65"></circle>
+                  </svg>
+                  <div class="chart-center">
+                    <span class="chart-label">12</span>
+                    <small>obras</small>
+                  </div>
+                </div>
+                <div class="chart-legend">
+                  <div class="legend-item">
+                    <span class="legend-dot" style="background: #22c55e;"></span>
+                    <span>Concluídas (3)</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-dot" style="background: #f59e0b;"></span>
+                    <span>Em Andamento (8)</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-dot" style="background: #3b82f6;"></span>
+                    <span>Planejadas (1)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Latest Updates -->
+          <div class="chart-card full-width">
+            <h3>Atualizações Recentes</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot" style="background: #22c55e;"></div>
+                <div class="timeline-content">
+                  <h4>Prédio Comercial - Centro</h4>
+                  <p>Conclusão da estrutura metálica</p>
+                  <span class="timeline-time">Hoje, 14:30</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot" style="background: #f59e0b;"></div>
+                <div class="timeline-content">
+                  <h4>Reforma Hotel - Praia</h4>
+                  <p>Inspeção de segurança realizada</p>
+                  <span class="timeline-time">Ontem, 10:15</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot" style="background: #ef4444;"></div>
+                <div class="timeline-content">
+                  <h4>Condomínio Residencial - Novo Bairro</h4>
+                  <p>Atraso identificado - Reunião agendada</p>
+                  <span class="timeline-time">2 dias atrás</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot" style="background: #3b82f6;"></div>
+                <div class="timeline-content">
+                  <h4>Galpão Industrial - Distrito</h4>
+                  <p>Aprovação da documentação finalizada</p>
+                  <span class="timeline-time">3 dias atrás</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Obras Page -->
+        <div id="obras" class="page">
+          <div class="filter-bar">
+            <div class="filter-group">
+              <select id="filterStatus">
+                <option value="">Todos os Status</option>
+                <option value="concluido">Concluídas</option>
+                <option value="em-andamento">Em Andamento</option>
+                <option value="planejado">Planejadas</option>
+              </select>
+              <input type="text" placeholder="Buscar por nome..." id="filterSearch">
+            </div>
+            <button class="btn-primary">+ Nova Obra</button>
+          </div>
+
+          <div class="obras-grid" id="obrasList"></div>
+        </div>
+
+        <!-- Timeline Page -->
+        <div id="timeline" class="page">
+          <div class="timeline-container">
+            <h2>Cronograma de Obras</h2>
+            <div class="gantt-chart" id="ganttChart"></div>
+          </div>
+        </div>
+
+        <!-- Relatórios Page -->
+        <div id="relatorios" class="page">
+          <div class="relatorios-container">
+            <h2>Relatórios</h2>
+            <div class="relatorios-grid">
+              <div class="relatorio-card">
+                <i class="fas fa-file-pdf"></i>
+                <h3>Relatório Mensal</h3>
+                <p>Janeiro 2026</p>
+                <button class="btn-secondary">Gerar</button>
+              </div>
+              <div class="relatorio-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Análise de Progresso</h3>
+                <p>Todas as obras</p>
+                <button class="btn-secondary">Gerar</button>
+              </div>
+              <div class="relatorio-card">
+                <i class="fas fa-exclamation-circle"></i>
+                <h3>Obras em Desvio</h3>
+                <p>Com atrasos</p>
+                <button class="btn-secondary">Gerar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

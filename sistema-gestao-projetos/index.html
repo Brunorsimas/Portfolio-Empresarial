@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gestão de Projetos - Engenharia Civil</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-hard-hat"></i>
+          <span>Gestão de Projetos</span>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-primary" onclick="openModal('novoProjeto')">
+            <i class="fas fa-plus"></i> Novo Projeto
+          </button>
+          <div class="user-menu">
+            <i class="fas fa-user-circle"></i>
+            <span>Admin</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Dashboard Stats -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <div class="stat-content">
+            <h3 id="totalProjetos">12</h3>
+            <p>Total de Projetos</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="stat-content">
+            <h3 id="projetosAndamento">5</h3>
+            <p>Em Andamento</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="stat-content">
+            <h3 id="projetosConcluidos">7</h3>
+            <p>Concluídos</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <div class="stat-content">
+            <h3 id="projetosAtrasados">2</h3>
+            <p>Com Atraso</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filters and Search -->
+      <section class="filters">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Buscar projetos..." onkeyup="filtrarProjetos()">
+        </div>
+        <div class="filter-options">
+          <select id="statusFilter" onchange="filtrarProjetos()">
+            <option value="">Todos os Status</option>
+            <option value="planejamento">Planejamento</option>
+            <option value="andamento">Em Andamento</option>
+            <option value="concluido">Concluído</option>
+            <option value="atrasado">Com Atraso</option>
+          </select>
+          <select id="tipoFilter" onchange="filtrarProjetos()">
+            <option value="">Todos os Tipos</option>
+            <option value="residencial">Residencial</option>
+            <option value="comercial">Comercial</option>
+            <option value="industrial">Industrial</option>
+            <option value="infraestrutura">Infraestrutura</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Projects Grid -->
+      <section class="projects-section">
+        <h2>Projetos Recentes</h2>
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Projects will be dynamically loaded here -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal Novo Projeto -->
+  <div id="novoProjeto" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Novo Projeto</h2>
+        <span class="close" onclick="closeModal('novoProjeto')">&times;</span>
+      </div>
+      <form id="formNovoProjeto" onsubmit="salvarProjeto(event)">
+        <div class="form-group">
+          <label for="nomeProjeto">Nome do Projeto</label>
+          <input type="text" id="nomeProjeto" required>
+        </div>
+        <div class="form-group">
+          <label for="cliente">Cliente</label>
+          <input type="text" id="cliente" required>
+        </div>
+        <div class="form-group">
+          <label for="tipo">Tipo de Obra</label>
+          <select id="tipo" required>
+            <option value="">Selecione...</option>
+            <option value="residencial">Residencial</option>
+            <option value="comercial">Comercial</option>
+            <option value="industrial">Industrial</option>
+            <option value="infraestrutura">Infraestrutura</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="orcamento">Orçamento (R$)</label>
+          <input type="text" id="orcamento" placeholder="R$ 0.000,00" required>
+        </div>
+        <div class="form-group">
+          <label for="dataInicio">Data de Início</label>
+          <input type="date" id="dataInicio" required>
+        </div>
+        <div class="form-group">
+          <label for="dataFim">Data Prevista</label>
+          <input type="date" id="dataFim" required>
+        </div>
+        <div class="form-group">
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" rows="3"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('novoProjeto')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar Projeto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Detalhes do Projeto -->
+  <div id="detalhesProjeto" class="modal">
+    <div class="modal-content modal-large">
+      <div class="modal-header">
+        <h2 id="modalProjectTitle">Detalhes do Projeto</h2>
+        <span class="close" onclick="closeModal('detalhesProjeto')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="project-details">
+          <div class="project-info">
+            <div class="info-group">
+              <label>Cliente:</label>
+              <span id="detailCliente"></span>
+            </div>
+            <div class="info-group">
+              <label>Tipo:</label>
+              <span id="detailTipo"></span>
+            </div>
+            <div class="info-group">
+              <label>Orçamento:</label>
+              <span id="detailOrcamento"></span>
+            </div>
+            <div class="info-group">
+              <label>Status:</label>
+              <span id="detailStatus"></span>
+            </div>
+            <div class="info-group">
+              <label>Progresso:</label>
+              <div class="progress-bar">
+                <div class="progress-fill" id="detailProgress"></div>
+              </div>
+              <span id="detailProgressText"></span>
+            </div>
+          </div>
+          
+          <div class="project-tabs">
+            <div class="tab-buttons">
+              <button class="tab-btn active" onclick="switchTab('etapas')">Etapas</button>
+              <button class="tab-btn" onclick="switchTab('documentos')">Documentos</button>
+              <button class="tab-btn" onclick="switchTab('equipe')">Equipe</button>
+            </div>
+            
+            <div class="tab-content">
+              <div id="etapas" class="tab-pane active">
+                <div class="etapas-list" id="etapasList">
+                  <!-- Etapas will be loaded here -->
+                </div>
+                <button class="btn btn-secondary" onclick="adicionarEtapa()">
+                  <i class="fas fa-plus"></i> Adicionar Etapa
+                </button>
+              </div>
+              
+              <div id="documentos" class="tab-pane">
+                <div class="documentos-list" id="documentosList">
+                  <!-- Documentos will be loaded here -->
+                </div>
+                <button class="btn btn-secondary" onclick="adicionarDocumento()">
+                  <i class="fas fa-upload"></i> Upload Documento
+                </button>
+              </div>
+              
+              <div id="equipe" class="tab-pane">
+                <div class="equipe-list" id="equipeList">
+                  <!-- Equipe will be loaded here -->
+                </div>
+                <button class="btn btn-secondary" onclick="adicionarMembro()">
+                  <i class="fas fa-user-plus"></i> Adicionar Membro
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
