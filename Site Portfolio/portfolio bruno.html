@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --bg: #0f172a;
@@ -91,19 +92,397 @@
       text-decoration: none;
       font-weight: 500;
     }
+    
+    /* Skills Section */
+    .skills-section {
+      background: rgba(17, 24, 39, 0.5);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 60px;
+      border: 1px solid rgba(56, 189, 248, 0.1);
+    }
+    
+    .skills-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .skill-category {
+      background: rgba(15, 23, 42, 0.8);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    
+    .skill-category h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .skill-category h3 i {
+      font-size: 1.4rem;
+    }
+    
+    .skills-grid {
+      display: grid;
+      gap: 15px;
+    }
+    
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px;
+      background: rgba(2, 6, 23, 0.5);
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .skill-item:hover {
+      background: rgba(56, 189, 248, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .skill-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(56, 189, 248, 0.1);
+      border-radius: 8px;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
+    .skill-info {
+      flex: 1;
+    }
+    
+    .skill-name {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    
+    .skill-level {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .skill-bar {
+      flex: 1;
+      height: 6px;
+      background: rgba(56, 189, 248, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), #0ea5e9);
+      border-radius: 3px;
+      transition: width 1s ease;
+    }
+    
+    .skill-percentage {
+      font-size: 0.8rem;
+      color: var(--muted);
+      min-width: 35px;
+    }
+    
+    .project-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .project-link:hover {
+      color: #0ea5e9;
+      transform: translateX(3px);
+    }
+    
+    .project-link i {
+      font-size: 0.9rem;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: rgba(56, 189, 248, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
 <!-- SEO: estrutura semântica otimizada / Performance: layout leve e responsivo -->
 
   <header role="banner">
-    <h1>Bruno <span>— Portfólio</span></h1>
+    <h1>Bruno <span>— Portfólio TI</span></h1>
     <p>
       Profissional de Tecnologia da Informação com experiência em suporte técnico corporativo,
       infraestrutura, sistemas ERP e desenvolvimento de soluções internas. Atuação em ambientes
       B2B com foco em estabilidade operacional, automação de processos e melhoria contínua.
     </p>
+    
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">14</div>
+        <div class="stat-label">Repositórios GitHub</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Anos de Experiência</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Certificações</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Plataformas Cloud</div>
+      </div>
+    </div>
   </header>
+
+  <section role="region">
+    <h2>Habilidades Técnicas</h2>
+    <div class="skills-section">
+      <div class="skills-categories">
+        <div class="skill-category">
+          <h3><i class="fas fa-cloud"></i> Cloud Computing</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fab fa-aws"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">AWS</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                  <span class="skill-percentage">85%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">Azure</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                  <span class="skill-percentage">75%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-server"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">SageMaker</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                  <span class="skill-percentage">70%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Desenvolvimento</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fab fa-python"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">Python</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                  <span class="skill-percentage">80%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fab fa-html5"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">HTML/CSS</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                  <span class="skill-percentage">85%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fab fa-js"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div>
+                  <span class="skill-percentage">65%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fab fa-csharp"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">C#</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 60%"></div></div>
+                  <span class="skill-percentage">60%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3><i class="fas fa-database"></i> Banco de Dados</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">SQL</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                  <span class="skill-percentage">75%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">Oracle</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                  <span class="skill-percentage">70%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">Azure SQL</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                  <span class="skill-percentage">70%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3><i class="fas fa-tools"></i> Suporte & Infra</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-desktop"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">Suporte Técnico</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                  <span class="skill-percentage">90%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">Redes</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                  <span class="skill-percentage">75%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-server"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">Servidores</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                  <span class="skill-percentage">70%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">GLPI</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                  <span class="skill-percentage">80%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3><i class="fas fa-briefcase"></i> Ferramentas ERP</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-cube"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">ERP Protheus</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                  <span class="skill-percentage">75%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-cube"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">ERP Pirâmide</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                  <span class="skill-percentage">70%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-info">
+                <div class="skill-name">Power Apps</div>
+                <div class="skill-level">
+                  <div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div>
+                  <span class="skill-percentage">65%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section role="region">
     <h2>Experiência Profissional</h2>
@@ -163,37 +542,73 @@
         <h3>AWSTEXTRACT</h3>
         <p>Ferramenta desenvolvida em Python para extração e processamento de dados em ambientes AWS, com foco em automação e organização de informações.</p>
         <div class="tech">Python • AWS • Automação</div>
-        <a href="https://github.com/Brunorsimas/AWSTEXTRACT">Ver no GitHub</a>
+        <a href="https://github.com/Brunorsimas/AWSTEXTRACT" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
       </div>
       <div class="card">
         <h3>AWS Rekognition</h3>
         <p>Projeto em Python utilizando serviços da AWS Rekognition para análise e reconhecimento de imagens, explorando recursos de visão computacional.</p>
         <div class="tech">Python • AWS Rekognition • Visão Computacional</div>
-        <a href="https://github.com/Brunorsimas/AWS-Rekognition">Ver no GitHub</a>
+        <a href="https://github.com/Brunorsimas/AWS-Rekognition" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
       </div>
       <div class="card">
         <h3>Integrações Azure</h3>
         <p>Scripts e testes de integração com serviços da Microsoft Azure, voltados à automação e experimentação de soluções em nuvem.</p>
         <div class="tech">Python • Azure • Cloud</div>
-        <a href="https://github.com/Brunorsimas/Azure">Ver no GitHub</a>
+        <a href="https://github.com/Brunorsimas/Azure" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
       </div>
       <div class="card">
         <h3>NutriSaúde</h3>
         <p>Website institucional desenvolvido em HTML para apresentação profissional na área de nutrição, com foco em estrutura e clareza visual.</p>
         <div class="tech">HTML • CSS • Front-end</div>
-        <a href="https://github.com/Brunorsimas/NutriSa-de">Ver no GitHub</a>
+        <a href="https://github.com/Brunorsimas/NutriSa-de" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
       </div>
       <div class="card">
         <h3>Projeto Podcast</h3>
         <p>Site estático desenvolvido para divulgação de podcast, incluindo estrutura de páginas e organização de conteúdo.</p>
         <div class="tech">HTML • CSS • Web</div>
-        <a href="https://github.com/Brunorsimas/Projeto-Podcast">Ver no GitHub</a>
+        <a href="https://github.com/Brunorsimas/Projeto-Podcast" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
       </div>
       <div class="card">
         <h3>Teste de Banco de Dados</h3>
         <p>Projeto em Python voltado a testes e validações de banco de dados, explorando conexões e operações básicas.</p>
         <div class="tech">Python • Banco de Dados</div>
-        <a href="https://github.com/Brunorsimas/Teste-de-Banco.DIO">Ver no GitHub</a>
+        <a href="https://github.com/Brunorsimas/Teste-de-Banco.DIO" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+      </div>
+      <div class="card">
+        <h3>Nicolas Tesla</h3>
+        <p>Website tributo ao inventor Nikola Tesla, desenvolvido com HTML, CSS e JavaScript, apresentando sua vida e contribuições científicas.</p>
+        <div class="tech">HTML • CSS • JavaScript • Design</div>
+        <a href="https://github.com/Brunorsimas/Nicolas-Tesla" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+      </div>
+      <div class="card">
+        <h3>SQL do Azure</h3>
+        <p>Scripts e exemplos de consultas SQL para Microsoft Azure, explorando recursos específicos da plataforma cloud da Microsoft.</p>
+        <div class="tech">SQL • Azure • Cloud</div>
+        <a href="https://github.com/Brunorsimas/SQL-do-Azure" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+      </div>
+      <div class="card">
+        <h3>Microsoft Azure</h3>
+        <p>Scripts de automação e configuração para serviços Microsoft Azure, incluindo exemplos práticos de deploy e gestão.</p>
+        <div class="tech">Azure • PowerShell • Cloud</div>
+        <a href="https://github.com/Brunorsimas/Microsoft-Azure" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+      </div>
+      <div class="card">
+        <h3>Trilha .NET Fundamentos</h3>
+        <p>Desafio de projeto .NET Fundamentos da Digital Innovation One, implementando conceitos básicos de C# e orientação a objetos.</p>
+        <div class="tech">C# • .NET • Orientação a Objetos</div>
+        <a href="https://github.com/Brunorsimas/trilha-net-fundamentos-desafio" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+      </div>
+      <div class="card">
+        <h3>Lab AWS SageMaker</h3>
+        <p>Laboratório prático com AWS SageMaker Canvas para gestão de estoque, explorando machine learning sem código.</p>
+        <div class="tech">AWS SageMaker • Machine Learning • Jupyter</div>
+        <a href="https://github.com/Brunorsimas/lab-aws-sagemaker-canvas-estoque" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+      </div>
+      <div class="card">
+        <h3>DIO Open Source</h3>
+        <p>Contribuição em projeto Open Source da Digital Innovation One, aprendendo práticas de colaboração e versionamento.</p>
+        <div class="tech">Git • Open Source • Colaboração</div>
+        <a href="https://github.com/Brunorsimas/dio-lab-open-source" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
       </div>
     </div>
   </section>
@@ -205,8 +620,8 @@
       <span>Paulista - PE</span>
     </div>
     <div>
-      <a href="https://github.com/Brunorsimas">GitHub</a><br />
-      <a href="https://www.linkedin.com/in/bruno-rafael-95b781186/">LinkedIn</a>
+      <a href="https://github.com/Brunorsimas"><i class="fab fa-github"></i> GitHub</a><br />
+      <a href="https://www.linkedin.com/in/bruno-rafael-95b781186/"><i class="fab fa-linkedin"></i> LinkedIn</a>
     </div>
   </footer>
 
